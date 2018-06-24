@@ -1,0 +1,17 @@
+{
+  "name": "ream-typescript",
+  "version": "0.1.0",
+  "description": "Typescript support for Ream.js",
+  "main": "index.js",
+  "repository": "https://github.com/IlyaSemenov/ream-typescript.git",
+  "author": "Ilya Semenov <ilya@semenov.co>",
+  "license": "MIT",
+  "dependencies": {
+    "deepmerge": "^2.1.1",
+    "fork-ts-checker-webpack-plugin": "^0.4.2",
+    "ts-loader": "^4.4.1"
+  },
+  "peerDependencies": {
+    "typescript": "^2.9"
+  }
+}

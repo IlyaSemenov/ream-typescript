@@ -1,4 +1,5 @@
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const ForkTsCheckerPlugin = require('fork-ts-checker-webpack-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const merge = require('deepmerge')
 
 module.exports = function plugin (options) {
@@ -20,9 +21,10 @@ module.exports = function plugin (options) {
             }
           }
         }))
+        config.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         if (type === 'server') {
           // Only run for server compiler to prevent duplicate errors
-          config.plugin('ts-checker').use(ForkTsCheckerWebpackPlugin, [{ vue: true }])
+          config.plugin('ts-checker').use(ForkTsCheckerPlugin, [{ vue: true }])
         }
       })
     }

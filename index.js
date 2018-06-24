@@ -12,7 +12,8 @@ module.exports = function plugin (options) {
     name: 'typescript',
     apply (ream) {
       ream.chainWebpack((config, { type }) => {
-        config.module.rule('js').test(/\.(jsx?|tsx?)$/).use('ts-loader').after('babel-loader').loader('ts-loader').options(loaderOptions)
+        config.resolve.extensions.merge(['.js', '.json', '.ts'])
+        config.module.rule('js').test(/\.(js|ts)$/).use('ts-loader').after('babel-loader').loader('ts-loader').options(loaderOptions)
         config.module.rule('vue').use('vue-loader').tap(options => merge(options || {}, {
           loaders: {
             ts: {

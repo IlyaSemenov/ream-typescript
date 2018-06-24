@@ -22,4 +22,4 @@ module.exports = {
 
 ## Usage
 
-Your Ream app will now import `*.ts` and `*.tsx` files, and will support `<script lang="ts">` sections in `*.vue` files.
+Your Ream app will now import `*.ts` files, and will support `<script lang="ts">` section in `*.vue` files.

@@ -3,28 +3,32 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const merge = require('deepmerge')
 
 module.exports = function plugin (options) {
-  const loaderOptions = Object.assign({
-    appendTsSuffixTo: [/\.vue$/],
-    transpileOnly: true
-  }, options)
+  options = merge({
+    extensions: ['.js', '.json', '.ts'],
+    serverTypeChecks: true,
+    clientTypeChecks: false, // By default, skip client type checks to prevent duplicate errors
+    tsLoaderOptions: {
+      appendTsSuffixTo: [/\.vue$/],
+      transpileOnly: true // TODO: in production build, set to false?
+    }
+  }, options || {})
 
   return {
     name: 'typescript',
     apply (ream) {
       ream.chainWebpack((config, { type }) => {
-        config.resolve.extensions.merge(['.js', '.json', '.ts'])
-        config.module.rule('js').test(/\.(js|ts)$/).use('ts-loader').after('babel-loader').loader('ts-loader').options(loaderOptions)
-        config.module.rule('vue').use('vue-loader').tap(options => merge(options || {}, {
+        config.resolve.extensions.merge(options.extensions)
+        config.module.rule('js').test(/\.(js|ts)$/).use('ts-loader').after('babel-loader').loader('ts-loader').options(options.tsLoaderOptions)
+        config.module.rule('vue').use('vue-loader').tap(vueLoaderOptions => merge(vueLoaderOptions || {}, {
           loaders: {
             ts: {
               loader: 'ts-loader',
-              loaderOptions
+              loadOptions: options.tsLoaderOptions
             }
           }
         }))
         config.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
-        if (type === 'server') {
-          // Only run for server compiler to prevent duplicate errors
+        if (ream.options.dev && (options.serverTypeChecks && type === 'server' || options.clientTypeChecks && type === 'client')) {
           config.plugin('ts-checker').use(ForkTsCheckerPlugin, [{ vue: true }])
         }
       })

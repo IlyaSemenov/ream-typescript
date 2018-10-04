@@ -8,7 +8,7 @@ cache:
 notifications:
   email: false
 env:
-  - BUILD_LEADER_ID=2
+  - BUILD_LEADER_ID=3
 branches:
   only:
     - master

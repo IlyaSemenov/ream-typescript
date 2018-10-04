@@ -1,6 +1,5 @@
 language: node_js
 node_js:
-  - 8
   - 10
 cache:
   directories:
@@ -8,7 +7,7 @@ cache:
 notifications:
   email: false
 env:
-  - BUILD_LEADER_ID=3
+  - BUILD_LEADER_ID=2
 branches:
   only:
     - master

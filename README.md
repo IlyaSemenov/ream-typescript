@@ -7,7 +7,7 @@ Typescript support for [Ream.js](https://ream.js.org/).
 Install Node packages:
 
 ```bash
-yarn add typescript ream-typescript
+npm i typescript ts-loader ream-typescript
 ```
 
 Add plugin to `ream.config.js`:

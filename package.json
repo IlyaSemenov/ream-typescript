@@ -27,6 +27,7 @@
     "semantic-release": "^15.9.17"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ]
 }

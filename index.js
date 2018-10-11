@@ -19,14 +19,6 @@ module.exports = function plugin (options) {
       ream.chainWebpack((config, { type }) => {
         config.resolve.extensions.merge(options.extensions)
         config.module.rule('js').test(/\.(js|ts)$/).use('ts-loader').after('babel-loader').loader('ts-loader').options(options.tsLoaderOptions)
-        config.module.rule('vue').use('vue-loader').tap(vueLoaderOptions => merge(vueLoaderOptions || {}, {
-          loaders: {
-            ts: {
-              loader: 'ts-loader',
-              loadOptions: options.tsLoaderOptions
-            }
-          }
-        }))
         config.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         if (ream.options.dev && (options.serverTypeChecks && type === 'server' || options.clientTypeChecks && type === 'client')) {
           config.plugin('ts-checker').use(ForkTsCheckerPlugin, [{ vue: true }])

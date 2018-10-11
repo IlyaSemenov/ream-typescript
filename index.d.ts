@@ -93,13 +93,13 @@ declare module 'ream' {
     resolveBaseDir(...args): string
   }
 
-	export default function ream(options?: Partial<Options>, config?: Partial<Config>): Ream
+  export default function ream(options?: Partial<Options>, config?: Partial<Config>): Ream
 }
 
 declare module 'ream-typescript' {
-	import { PluginDef } from 'ream'
+  import { PluginDef } from 'ream'
 
-	export interface Options {
+  export interface Options {
     extensions: string[]
     serverTypeChecks: boolean
     clientTypeChecks: boolean
@@ -109,5 +109,5 @@ declare module 'ream-typescript' {
     }
   }
 
-	export default function (options?: Partial<Options>): PluginDef
+  export default function (options?: Partial<Options>): PluginDef
 }

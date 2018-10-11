@@ -1,6 +1,6 @@
 {
   "name": "ream-typescript",
-  "version": "0.0.0-development",
+  "version": "0.0.0-managed-by-semantic-release",
   "description": "Typescript support for Ream.js",
   "main": "index.js",
   "repository": "https://github.com/IlyaSemenov/ream-typescript.git",

@@ -3,17 +3,22 @@
   "version": "0.0.0-managed-by-semantic-release",
   "description": "Typescript support for Ream.js",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": "https://github.com/IlyaSemenov/ream-typescript.git",
   "author": "Ilya Semenov <ilya@semenov.co>",
   "license": "MIT",
   "dependencies": {
+    "@types/express": "^4.16.0",
+    "@types/webpack": "^4.4.16",
+    "@types/webpack-chain": "^4.8.1",
     "deepmerge": "^2.1.1",
     "fork-ts-checker-webpack-plugin": "^0.4.2",
     "tsconfig-paths-webpack-plugin": "^3.2.0"
   },
   "peerDependencies": {
-    "typescript": "^2.9 || ^3",
-    "ts-loader": "^4.4.1 || ^5.2.1"
+    "ream": "^3.3.4",
+    "ts-loader": "^4.4.1 || ^5.2.1",
+    "typescript": "^2.9 || ^3"
   },
   "scripts": {
     "test": "true"

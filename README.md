@@ -47,3 +47,7 @@ Available options:
 * *serverTypeChecks*: `true` — whether to run type checks in server webpack build.
 * *clientTypeChecks*: `false` — whether to run type checks in client webpack build (disabled by default as client and server builds typically run on the same set of files and this is mostly double work and duplicate errors output).
 * *tsLoaderOptions* — override [ts-loader](https://github.com/TypeStrong/ts-loader) options.
+
+## Ream Typescript bindings
+
+`import 'ream-typescript'` somewhere in your *.ts module to pull agumented Ream typescript bindings.

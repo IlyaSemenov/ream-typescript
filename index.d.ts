@@ -44,6 +44,7 @@ declare module 'ream' {
 
   export interface Config {
     entry: string
+    outDir: string
     fsRoutes: boolean | {
       baseDir: string
       basePath: string
